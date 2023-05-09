@@ -1,7 +1,10 @@
 import express, {Request,Response} from 'express';
-import mysql2 from 'mysql2/promise'
+import mysql2 from 'mysql2/promise';
+import cors from 'cors';
+
 const app = express();
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 app.get('/pessoas',async (req:Request,res:Response)=>{
     let banco = await mysql2.createConnection({
         host:"localhost",

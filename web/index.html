@@ -8,5 +8,27 @@
 </head>
 <body>
     <h1>Listando pessoas</h1>
+    <ul id="pessoas">
+        <li>Guilherme</li>
+        <li>Danilo</li>
+    </ul>
+
+    
+    <script>
+        const url = "http://localhost:3000/pessoas";
+
+        fetch(url)
+            .then(resposta=>resposta.json())
+            .then(data=>{
+                const lista = document.querySelector('#pessoas');
+                for(let i=0; i<data.length;i++){
+                    let li = document.createElement('li');
+                    li.textContent = data[i].nome
+                    lista.appendChild(li)
+                }
+
+
+            });
+    </script>
 </body>
 </html>
