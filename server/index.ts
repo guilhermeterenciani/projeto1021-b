@@ -23,9 +23,9 @@ app.post('/pessoas',async (req:Request,res:Response)=>{
         password:"test",
         database:"test"
     })
-    console.log(req.body.nome)
+    //console.log(req.body.id,req.body.nome,req.body.idade)
     let query = "INSERT INTO pessoas (id,nome,idade) VALUES (?,?,?)";
-    let [resultado, _ ] = await banco.query(query);
+    let [resultado, _ ] = await banco.query(query,[req.body.id,req.body.nome,req.body.idade]);
     res.send({mensagem:"Cadastrado"});
 });
 
