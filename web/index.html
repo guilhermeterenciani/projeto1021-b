@@ -9,8 +9,6 @@
 <body>
     <h1>Listando pessoas</h1>
     <ul id="pessoas">
-        <li>Guilherme</li>
-        <li>Danilo</li>
     </ul>
 
     
@@ -23,7 +21,7 @@
                 const lista = document.querySelector('#pessoas');
                 for(let i=0; i<data.length;i++){
                     let li = document.createElement('li');
-                    li.textContent = data[i].nome
+                    li.textContent = `${data[i].id} ${data[i].nome} ${data[i].idade}`
                     lista.appendChild(li)
                 }
 
