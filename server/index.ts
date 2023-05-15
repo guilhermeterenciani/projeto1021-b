@@ -16,6 +16,18 @@ app.get('/pessoas',async (req:Request,res:Response)=>{
     let [resultado, _ ] = await banco.query(query);
     res.send(resultado);
 });
+app.post('/pessoas',async (req:Request,res:Response)=>{
+    let banco = await mysql2.createConnection({
+        host:"localhost",
+        user:"test",
+        password:"test",
+        database:"test"
+    })
+    console.log(req.body.nome)
+    let query = "INSERT INTO pessoas (id,nome,idade) VALUES (?,?,?)";
+    let [resultado, _ ] = await banco.query(query);
+    res.send({mensagem:"Cadastrado"});
+});
 
 app.get('/tere', (req:Request, res:Response) => {
     res.send('Hello Tere!');
