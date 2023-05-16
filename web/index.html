@@ -46,7 +46,22 @@
                 }
 
 
-            });
+        });
+
+        let formJS = document.querySelector("#form-cadastro")
+        //console.log(formJS)
+        formJS.addEventListener('submit',(event)=>{
+            event.preventDefault()
+            //console.log("cliquei no botão")
+            //O que fazer agora?
+            //passo 1: pegar as informaçõs dos inputs
+            let id = document.getElementById("id").value
+            let nome = document.querySelector("#nome").value
+            let idade = document.querySelector("#idade").value
+            console.log(id,nome,idade)
+            //passo 2: enviar informações
+        })
+        
     </script>
 </body>
 </html>
