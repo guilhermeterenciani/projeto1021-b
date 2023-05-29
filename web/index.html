@@ -15,8 +15,18 @@
 </head>
 <body>
     <h1>Listando pessoas</h1>
-    <ul id="pessoas">
-    </ul>
+    <table class="tabela" id="tabela">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>IDADE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Será adicionado com a lista que vem da API -->
+        </tbody>
+    </table>
 
     <form class="form-cadastro" id="form-cadastro">
         <label for="id">id</label>
@@ -38,14 +48,22 @@
         fetch(url)
             .then(resposta=>resposta.json())
             .then(data=>{
-                const lista = document.querySelector('#pessoas');
+                const tabela = document.querySelector('#tabela');
                 for(let i=0; i<data.length;i++){
-                    let li = document.createElement('li');
-                    li.textContent = `${data[i].id} ${data[i].nome} ${data[i].idade}`
-                    lista.appendChild(li)
+                    let tr = document.createElement('tr')
+                    let tdId = document.createElement('td')
+                    let tdNome = document.createElement('td')
+                    let tdIdade = document.createElement('td')
+                    tdId.textContent = data[i].id
+                    tdNome.textContent = data[i].nome
+                    tdIdade.textContent = data[i].idade
+
+                    tr.appendChild(tdId)
+                    tr.appendChild(tdNome)
+                    tr.appendChild(tdIdade)
+
+                    tabela.appendChild(tr)
                 }
-
-
         });
 
         let formJS = document.querySelector("#form-cadastro")
