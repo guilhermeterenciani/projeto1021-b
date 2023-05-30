@@ -44,6 +44,7 @@
                 <th>ID</th>
                 <th>NOME</th>
                 <th>IDADE</th>
+                <th>Excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -80,10 +81,17 @@
                     tdId.textContent = data[i].id
                     tdNome.textContent = data[i].nome
                     tdIdade.textContent = data[i].idade
-
+                    
+                    let tdBotaoExcluir = document.createElement('td')
+                    
+                    let aExcluir = document.createElement('a')
+                    aExcluir.textContent = "Excluir"
+                    tdBotaoExcluir.appendChild(aExcluir)
+                    
                     tr.appendChild(tdId)
                     tr.appendChild(tdNome)
                     tr.appendChild(tdIdade)
+                    tr.appendChild(tdBotaoExcluir)
 
                     tabela.appendChild(tr)
                 }
