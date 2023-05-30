@@ -28,6 +28,18 @@ app.post('/pessoas',async (req:Request,res:Response)=>{
     let [resultado, _ ] = await banco.query(query,[req.body.id,req.body.nome,req.body.idade]);
     res.send({mensagem:"Cadastrado"});
 });
+app.delete('/pessoas/:id',async (req:Request,res:Response)=>{
+    let banco = await mysql2.createConnection({
+        host:"localhost",
+        user:"test",
+        password:"test",
+        database:"test"
+    })
+    //console.log(req.body.id,req.body.nome,req.body.idade)
+    let query = "DELETE FROM pessoas WHERE id = ?";
+    let [resultado, _ ] = await banco.query(query,[req.params.id]);
+    res.send({mensagem:"Excluido"});
+});
 
 app.get('/tere', (req:Request, res:Response) => {
     res.send('Hello Tere!');
