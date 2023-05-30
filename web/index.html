@@ -26,12 +26,24 @@
             border: 1px solid black;
             border-collapse: collapse;
             padding: 15px 30px;
+            text-align: center;
         }
         tr:nth-child(even){
             background-color: #23232326;
         }
         body{
             font: 1.2em sans-serif;
+        }
+        .excluir{
+            background-color: red;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+        .excluir:hover{
+            background-color: #ff0000c7;
         }
 
     </style>
@@ -86,6 +98,19 @@
                     
                     let aExcluir = document.createElement('a')
                     aExcluir.textContent = "Excluir"
+                    aExcluir.classList.add('excluir')
+
+                    aExcluir.addEventListener('click',(event)=>{
+                        event.preventDefault();
+                        fetch(`${url}/${data[i].id}`,{
+                            method: 'DELETE'
+                        })
+                        .finally(()=>{
+                            // window.location.reload()
+                        });
+                    })
+
+
                     tdBotaoExcluir.appendChild(aExcluir)
                     
                     tr.appendChild(tdId)
