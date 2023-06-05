@@ -35,7 +35,7 @@
             font: 1.2em sans-serif;
         }
         .excluir{
-            background-color: red;
+            background-color: rgb(221, 22, 22);
             text-decoration: none;
             padding: 10px 20px;
             color: white;
@@ -44,6 +44,18 @@
         }
         .excluir:hover{
             background-color: #ff0000c7;
+        }
+
+        .alterar{
+            background-color: #01318ac1;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+        .alterar:hover{
+            background-color: #1248adc1;
         }
 
     </style>
@@ -116,7 +128,7 @@
                     //criando um elemento de link que será meu botão de alterar
                     let aAlterar = document.createElement('a')
                     aAlterar.textContent = "Alterar"
-                    aAlterar.classList.add('excluir')
+                    aAlterar.classList.add('alterar')
                     //Adicionando meu link ao meu TD criado
                     tdBotaoExcluir.appendChild(aExcluir)
                     tdBotaoAlterar.appendChild(aAlterar)                    
