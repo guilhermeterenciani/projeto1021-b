@@ -41,6 +41,19 @@ app.delete('/pessoas/:id',async (req:Request,res:Response)=>{
     res.send({mensagem:"Excluido"});
 });
 
+app.put('/pessoas/:id',async (req:Request,res:Response)=>{
+    let banco = await mysql2.createConnection({
+        host:"localhost",
+        user:"test",
+        password:"test",
+        database:"test"
+    })
+    let sql = "UPDATE pessoas SET id = ?, nome = ?, idade = ? WHERE id = ?"
+    let [resultado, _ ] 
+        = await banco.query(sql,[req.body.id,req.body.nome,req.body.idade,req.params.id]);
+    banco.end()
+    res.send(JSON.stringify({mensagem:"Atualizado com sucesso"})).status(200);
+})
 app.get('/tere', (req:Request, res:Response) => {
     res.send('Hello Tere!');
 });
