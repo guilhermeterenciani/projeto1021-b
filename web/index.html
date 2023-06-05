@@ -175,8 +175,16 @@
                                 nome,
                                 idade
                             }
-                            console.log(pessoa)
                             //Passo 2: Salvar na API
+                            fetch(url+'/'+data[i].id,{
+                                method: 'PUT',
+                                headers:{
+                                    'Content-Type':'application/json'
+                                },
+                                body: JSON.stringify(pessoa)
+                            })
+                            .then(response => response.json())
+                            .finally(()=>window.location.reload());
                         })
 
                     })
