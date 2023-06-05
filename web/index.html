@@ -57,6 +57,7 @@
                 <th>NOME</th>
                 <th>IDADE</th>
                 <th>Excluir</th>
+                <th>Alterar</th>
             </tr>
         </thead>
         <tbody>
@@ -110,13 +111,21 @@
                         });
                     })
 
-
+                    //Criando uma coluna da tabela de alterar dado cadastrado
+                    let tdBotaoAlterar = document.createElement('td')
+                    //criando um elemento de link que será meu botão de alterar
+                    let aAlterar = document.createElement('a')
+                    aAlterar.textContent = "Alterar"
+                    aAlterar.classList.add('excluir')
+                    //Adicionando meu link ao meu TD criado
                     tdBotaoExcluir.appendChild(aExcluir)
-                    
+                    tdBotaoAlterar.appendChild(aAlterar)                    
                     tr.appendChild(tdId)
                     tr.appendChild(tdNome)
                     tr.appendChild(tdIdade)
                     tr.appendChild(tdBotaoExcluir)
+                    //adicionando o td cd alterar na linha da tabela
+                    tr.appendChild(tdBotaoAlterar)
 
                     tabela.appendChild(tr)
                 }
