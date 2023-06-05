@@ -127,6 +127,11 @@
                     let tdBotaoAlterar = document.createElement('td')
                     //criando um elemento de link que será meu botão de alterar
                     let aAlterar = document.createElement('a')
+                    aAlterar.addEventListener('click',()=>{
+                        document.querySelector("#id").value = data[i].id
+                        document.querySelector("#nome").value = data[i].nome
+                        document.querySelector("#idade").value = data[i].idade
+                    })
                     aAlterar.textContent = "Alterar"
                     aAlterar.classList.add('alterar')
                     //Adicionando meu link ao meu TD criado
