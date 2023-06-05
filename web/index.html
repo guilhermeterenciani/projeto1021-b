@@ -162,6 +162,23 @@
                         document.querySelector("#id").value = data[i].id
                         document.querySelector("#nome").value = data[i].nome
                         document.querySelector("#idade").value = data[i].idade
+                        document.querySelector("button").textContent = "Alterar"
+                        let form = document.querySelector("#form-cadastro")
+
+                        form.addEventListener("submit",(event)=>{
+                            //passo 1: Buscar o que o usuario digitou
+                            let id = document.querySelector("#id").value
+                            let nome = document.querySelector("#nome").value
+                            let idade = document.querySelector("#idade").value
+                            let pessoa = {
+                                id,
+                                nome,
+                                idade
+                            }
+                            console.log(pessoa)
+                            //Passo 2: Salvar na API
+                        })
+
                     })
                     aAlterar.textContent = "Alterar"
                     aAlterar.classList.add('alterar')
@@ -183,6 +200,10 @@
         //console.log(formJS)
         formJS.addEventListener('submit',(event)=>{
             event.preventDefault()
+            let button = document.querySelector('button')
+            if(button.textContent == 'Alterar'){
+                return
+            }
             //console.log("cliquei no botão")
             //O que fazer agora?
             //passo 1: pegar as informaçõs dos inputs
